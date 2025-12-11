@@ -154,9 +154,9 @@ $mensaje = $_GET['msg'] ?? null;
                             <strong class="fs-5 text-accent">$<?= number_format($total, 2); ?></strong>
                         </div>
                         <div class="d-grid">
-                            <button class="btn btn-accent btn-lg" onclick="alert('Funcionalidad de checkout próximamente');">
+                            <a href="index.php?sec=checkout" class="btn btn-accent btn-lg">
                                 <i class="bi bi-credit-card me-2"></i>Proceder al pago
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
