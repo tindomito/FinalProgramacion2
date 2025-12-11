@@ -2,7 +2,6 @@
 require_once "classes/Producto.php";
 
 $id = $_GET['id'] ?? null;
-$mensaje = $_GET['msg'] ?? null;
 $producto = null;
 
 if ($id && is_numeric($id)) {
@@ -11,14 +10,6 @@ if ($id && is_numeric($id)) {
 ?>
 
 <section class="container py-5 text-light">
-  <?php if ($mensaje === 'agregado'): ?>
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-      <i class="bi bi-check-circle me-2"></i>Producto agregado al carrito correctamente.
-      <a href="index.php?sec=carrito" class="alert-link">Ver carrito</a>
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-  <?php endif; ?>
-
   <?php if ($producto): ?>
     <div class="row justify-content-center align-items-center g-5">
       <!-- Imagen del producto -->
@@ -39,9 +30,9 @@ if ($id && is_numeric($id)) {
           <div>
             <p class="fs-3 fw-bold text-accent">$<?= number_format($producto->getPrecio(), 2); ?></p>
             <div class="d-grid gap-2 mt-4">
-              <a href="actions/carrito_action.php?action=agregar&id_producto=<?= $producto->getIdProducto(); ?>&redirect=detalle&id=<?= $producto->getIdProducto(); ?>" class="btn btn-primary btn-accent btn-lg">
+              <button type="button" onclick="agregarAlCarrito(<?= $producto->getIdProducto(); ?>, '<?= htmlspecialchars(addslashes($producto->getNombre())); ?>', <?= $producto->getPrecio(); ?>, '<?= htmlspecialchars($producto->getFoto()); ?>')" class="btn btn-primary btn-accent btn-lg">
                 <i class="bi bi-cart-plus me-2"></i>Agregar al carrito
-              </a>
+              </button>
               <a href="index.php?sec=filtro" class="btn btn-success btn-outline-light btn-lg">Volver al catálogo</a>
             </div>
           </div>
