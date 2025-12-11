@@ -52,5 +52,17 @@
     "texto": "Carrito",
     "title": "Carrito de compras",
     "inMenu": false
+  },
+  {
+    "vinculo": "checkout",
+    "texto": "Checkout",
+    "title": "Finalizar compra",
+    "inMenu": false
+  },
+  {
+    "vinculo": "compra-exitosa",
+    "texto": "Compra Exitosa",
+    "title": "Compra realizada con éxito",
+    "inMenu": false
   }
 ]
