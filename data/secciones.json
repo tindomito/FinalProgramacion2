@@ -42,11 +42,15 @@
     "inMenu": false
   },
   {
-  "vinculo": "detalle",
-  "texto": "Detalle",
-  "title": "Detalle de producto",
-  "inMenu": false
-}
-
-  
+    "vinculo": "detalle",
+    "texto": "Detalle",
+    "title": "Detalle de producto",
+    "inMenu": false
+  },
+  {
+    "vinculo": "carrito",
+    "texto": "Carrito",
+    "title": "Carrito de compras",
+    "inMenu": false
+  }
 ]
