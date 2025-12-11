@@ -5,6 +5,7 @@ require_once "classes/Marca.php";
 $marca = $_GET['marca'] ?? null;
 $min = $_GET['min'] ?? null;
 $max = $_GET['max'] ?? null;
+$mensaje = $_GET['msg'] ?? null;
 
 $productos = (new Producto())->filtrarProductos($marca, $min, $max);
 $marcas = (new Marca())->todasMarcas();
@@ -12,6 +13,14 @@ $marcas = (new Marca())->todasMarcas();
 
 <section class="container py-5 text-light">
   <h1 class="mb-4 text-center text-dark">Catálogo de Productos</h1>
+
+  <?php if ($mensaje === 'agregado'): ?>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <i class="bi bi-check-circle me-2"></i>Producto agregado al carrito correctamente.
+      <a href="index.php?sec=carrito" class="alert-link">Ver carrito</a>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  <?php endif; ?>
 
   <!-- Filtros -->
   <form method="GET" action="index.php" class="mb-5 bg-dark-accent p-4 rounded">
@@ -64,7 +73,9 @@ $marcas = (new Marca())->todasMarcas();
               <h5 class="card-title text-dark"><?= htmlspecialchars($producto->getNombre()); ?></h5>
               <p class="fs-5 fw-bold text-accent">$<?= number_format($producto->getPrecio(), 2); ?></p>
               <a href="index.php?sec=detalle&id=<?= $producto->getIdProducto(); ?>" class="btn btn-outline-light w-100 mb-2 btn-primary">Más detalles</a>
-              <a href="#" class="btn btn-accent w-100 text-dark btn-success">Agregar al carrito</a>
+              <a href="actions/carrito_action.php?action=agregar&id_producto=<?= $producto->getIdProducto(); ?>&redirect=filtro" class="btn btn-accent w-100 text-dark btn-success">
+                <i class="bi bi-cart-plus me-1"></i>Agregar al carrito
+              </a>
             </div>
           </div>
         </div>

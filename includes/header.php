@@ -1,6 +1,8 @@
 <?php
 require_once "classes/Secciones.php";
+require_once "classes/Carrito.php";
 $secciones = Secciones::secciones_del_sitio();
+$cantidadCarrito = Carrito::contarItems();
 ?>
 
 <header class="bg-dark shadow-sm">
@@ -21,6 +23,16 @@ $secciones = Secciones::secciones_del_sitio();
             </li>
           <?php endif; ?>
         <?php endforeach; ?>
+        <li class="nav-item ms-lg-3">
+          <a class="nav-link position-relative <?php if(($_GET['sec'] ?? '') === 'carrito') echo 'active'; ?>" href="?sec=carrito" title="Ver carrito">
+            <i class="bi bi-cart3 fs-5"></i>
+            <?php if ($cantidadCarrito > 0): ?>
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-badge">
+                <?= $cantidadCarrito > 99 ? '99+' : $cantidadCarrito; ?>
+              </span>
+            <?php endif; ?>
+          </a>
+        </li>
       </ul>
     </div>
   </nav>
@@ -48,6 +60,21 @@ $secciones = Secciones::secciones_del_sitio();
 .navbar-dark .navbar-nav .nav-link.active {
   color: #0dcaf0;
   border-bottom: 2px solid #0dcaf0;
+}
+
+.cart-badge {
+  font-size: 0.65rem;
+  padding: 0.25em 0.5em;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
 }
 
 </style>
