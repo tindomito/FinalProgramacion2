@@ -1,0 +1,52 @@
+[
+  {
+    "vinculo": "inicio",
+    "texto": "Inicio",
+    "title": "Inicio", 
+    "inMenu": true
+  },
+  {
+    "vinculo": "detalles",
+    "texto": "Detalles",
+    "title": "Detalles de persona", 
+    "inMenu": false
+  },
+  {
+    "vinculo": "filtro",
+    "texto": "Productos",
+    "title": "Catálogo completo de productos",
+    "inMenu": true
+  },
+  {
+    "vinculo": "contacto",
+    "texto": "Contacto",
+    "title": "Contacto", 
+    "inMenu": true
+  },
+  {
+    "vinculo": "enviado",
+    "texto": "Formulario Enviado",
+    "title": "Formulario enviado con éxito", 
+    "inMenu": false
+  },
+  {
+    "vinculo": "alumno",
+    "texto": "Alumno",
+    "title": "Datos del Alumno", 
+    "inMenu": true
+  }, 
+  {
+    "vinculo": "404",
+    "texto": "Error 404",
+    "title": "Página no encontrada", 
+    "inMenu": false
+  },
+  {
+  "vinculo": "detalle",
+  "texto": "Detalle",
+  "title": "Detalle de producto",
+  "inMenu": false
+}
+
+  
+]
