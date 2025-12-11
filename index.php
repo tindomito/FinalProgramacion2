@@ -1,4 +1,6 @@
 <?php
+    session_start();
+
     // $secciones_validas = ["inicio", "productos", "detalle", "filtro", "contacto"];
     /*Reemplazamos el array por la información asociado en el json y obtenemos los datos desde el objeto Secciones*/
 

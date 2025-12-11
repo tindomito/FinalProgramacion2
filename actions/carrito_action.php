@@ -6,12 +6,17 @@ $action = $_REQUEST['action'] ?? null;
 $id_producto = isset($_REQUEST['id_producto']) ? (int)$_REQUEST['id_producto'] : null;
 $cantidad = isset($_REQUEST['cantidad']) ? (int)$_REQUEST['cantidad'] : 1;
 $redirect = $_REQUEST['redirect'] ?? 'carrito';
+$redirect_id = isset($_REQUEST['id']) ? (int)$_REQUEST['id'] : null;
 
 switch ($action) {
     case 'agregar':
         if ($id_producto) {
             Carrito::agregar($id_producto, $cantidad);
-            header("Location: ../index.php?sec=$redirect&msg=agregado");
+            $url = "../index.php?sec=$redirect&msg=agregado";
+            if ($redirect === 'detalle' && $redirect_id) {
+                $url .= "&id=$redirect_id";
+            }
+            header("Location: $url");
         } else {
             header("Location: ../index.php?sec=filtro");
         }
